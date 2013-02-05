@@ -38,13 +38,14 @@ class Ptoid (object):
 			return False
 			
 	def update(self):
-		self.pos.x += self.vel.x
-		self.pos.y += self.vel.y
 		
-		self.vel.x += self.acc.x
-		self.vel.y += self.acc.y
+		self.pos = Point(self.pos.x + self.vel.x,
+		                 self.pos.y + self.vel.y)
 		
-	
+		self.vel = Point(self.vel.x + self.accel.x,
+		                 self.vel.y + self.accel.y)
+		
+		
 	def draw(self):
 		tint(*self.color)
 		image('White_Circle', self.pos.x - self.radius,
